@@ -1,6 +1,7 @@
 # EstateGPT Elite - The Future of Luxury Real Estate Intelligence
 
-http://localhost:5173/
+
+https://frontend-bay-gamma-71.vercel.app
 
 
 **EstateGPT Elite** is a premium, AI-powered real estate intelligence web platform designed for luxury real estate firms, investment funds, and high-net-worth property buyers. It combines advanced machine learning (Random Forest Regression) with explainable AI (SHAP value contributions) and real estate valuation metrics.
