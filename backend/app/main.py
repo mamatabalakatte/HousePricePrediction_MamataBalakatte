@@ -1,10 +1,14 @@
 import os
+import sys
 import tempfile
 from fastapi import FastAPI, HTTPException, Body
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 from typing import Optional, List
+
+# Add the parent directory of 'app' to the Python path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app.ml_pipeline import LuxuryMLPipeline
 from app.pdf_generator import generate_pdf_report

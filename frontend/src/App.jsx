@@ -6,6 +6,8 @@ import {
   Layers, Lock, AlertTriangle, ShieldCheck, DollarSign
 } from 'lucide-react';
 
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 export default function App() {
   const [activeTab, setActiveTab] = useState('landing');
   const [theme, setTheme] = useState('dark'); // dark/light mode
@@ -71,7 +73,7 @@ export default function App() {
     setError(null);
     try {
       // 1. Predict
-      const predictRes = await fetch('/api/predict', {
+      const predictRes = await fetch(`${API_URL}/api/predict`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(inputs)
@@ -81,7 +83,7 @@ export default function App() {
       setPredictResult(predictData);
 
       // 2. Similar Properties
-      const similarRes = await fetch('/api/recommend', {
+      const similarRes = await fetch(`${API_URL}/api/recommend`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(inputs)
@@ -92,7 +94,7 @@ export default function App() {
       }
 
       // 3. Negotiation Advisor
-      const negRes = await fetch('/api/negotiation', {
+      const negRes = await fetch(`${API_URL}/api/negotiation`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -124,7 +126,7 @@ export default function App() {
   const handleSimulateUpgrade = async (upgradesList) => {
     setLoadingUpgrade(true);
     try {
-      const res = await fetch('/api/upgrade', {
+      const res = await fetch(`${API_URL}/api/upgrade`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -163,7 +165,7 @@ export default function App() {
   const fetchAnalytics = async () => {
     setLoadingAnalytics(true);
     try {
-      const res = await fetch('/api/analytics');
+      const res = await fetch(`${API_URL}/api/analytics`);
       if (res.ok) {
         const data = await res.json();
         setAnalyticsData(data);
@@ -180,7 +182,7 @@ export default function App() {
     if (!predictResult) return;
     setDownloadingPdf(true);
     try {
-      const res = await fetch('/api/report', {
+      const res = await fetch(`${API_URL}/api/report`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(predictResult)

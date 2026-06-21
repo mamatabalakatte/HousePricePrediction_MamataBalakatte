@@ -121,6 +121,17 @@ class TestEstateGPTBackend(unittest.TestCase):
         self.assertIn("feature_importances", data)
         self.assertIn("luxury_distribution", data)
 
+    def test_api_report(self):
+        """Tests PDF report generation endpoint."""
+        predict_res = self.client.post("/api/predict", json=self.sample_features)
+        self.assertEqual(predict_res.status_code, 200)
+        predict_data = predict_res.json()
+        
+        res = self.client.post("/api/report", json=predict_data)
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.headers.get("content-type"), "application/pdf")
+        self.assertTrue(len(res.content) > 0)
+
 
 if __name__ == "__main__":
     unittest.main()
