@@ -1,0 +1,32 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Node dependencies
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/*.local
+
+# Python files
+backend/__pycache__/
+backend/app/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+
+# Virtual environments
+backend/venv/
+backend/.venv
+venv/
+.venv
+.env
+
+# SQLite databases
+*.db
+backend/data/*.db
+
+# Jupyter Notebooks
+*.ipynb
