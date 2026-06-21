@@ -1,5 +1,8 @@
 # EstateGPT Elite - The Future of Luxury Real Estate Intelligence
 
+http://localhost:5173/
+
+
 **EstateGPT Elite** is a premium, AI-powered real estate intelligence web platform designed for luxury real estate firms, investment funds, and high-net-worth property buyers. It combines advanced machine learning (Random Forest Regression) with explainable AI (SHAP value contributions) and real estate valuation metrics.
 
 ---
@@ -55,8 +58,8 @@ To run the application locally, you will need to start both the backend server a
    ```bash
    python3 run.py
    ```
-   *The backend will automatically train the prediction model on `data/Housing.csv` and start listening on [http://localhost:8000](http://localhost:8000).*
-   *Health Check API endpoint: [http://localhost:8000/api/health](http://localhost:8000/api/health)*
+   *The backend will automatically train the prediction model on `data/Housing.csv` 
+
 
 ### ⚛️ Step 2: Run the Frontend (Vite + React)
 
@@ -72,9 +75,7 @@ To run the application locally, you will need to start both the backend server a
    ```bash
    npm run dev
    ```
-   *The frontend will start on [http://localhost:5173](http://localhost:5173) and automatically proxy API calls to the backend on port 8000.*
-
----
+   *The frontend will start on http://localhost:5173/
 
 ## 🧪 Running Tests
 
